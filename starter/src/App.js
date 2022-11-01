@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
-import { CreateSearchBar } from "./Components/SearchBar";
-import { CreateBooksList } from "./Components/BooksList";
+import { SearchBar } from "./Components/SearchBar";
+import { BooksList } from "./Components/BooksList";
 
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
@@ -9,12 +9,12 @@ function App() {
   return (
     <div className="app">
       {showSearchPage ? (
-        <CreateSearchBar
+        <SearchBar
           setShowSearchPage={setShowSearchPage}
           showSearchPage={showSearchPage}
         />
       ) : (
-        <CreateBooksList
+        <BooksList
           setShowSearchPage={setShowSearchPage}
           showSearchPage={showSearchPage}
         />

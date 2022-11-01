@@ -1,4 +1,4 @@
-export const CreateSearchBar = ({ setShowSearchPage, showSearchPage }) => {
+export const SearchBar = ({ setShowSearchPage, showSearchPage }) => {
   return (
     <div className="search-books">
       <div className="search-books-bar">
