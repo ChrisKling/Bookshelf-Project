@@ -1,7 +1,7 @@
 import "./App.css";
 import { useState } from "react";
 import { SearchBar } from "./Components/SearchBar";
-import { BooksList } from "./Components/BooksList";
+import { BookCase } from "./Components/BookCase";
 
 function App() {
   const [showSearchPage, setShowSearchPage] = useState(false);
@@ -14,7 +14,7 @@ function App() {
           showSearchPage={showSearchPage}
         />
       ) : (
-        <BooksList
+        <BookCase
           setShowSearchPage={setShowSearchPage}
           showSearchPage={showSearchPage}
         />
