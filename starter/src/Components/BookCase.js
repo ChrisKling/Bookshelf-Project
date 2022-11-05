@@ -20,7 +20,8 @@ export const BookCase = ({ setShowSearchPage, showSearchPage }) => {
     sortBooks();
   }, [allBooks]);
   function booksHopper(option, id) {
-    console.log(option);
+    // console.log("target id:", id);
+    // console.log("selected shelf", option);
     const updatedBooks = allBooks.map((buk) => {
       if (buk.id === id) {
         buk.shelf = option;
@@ -28,7 +29,7 @@ export const BookCase = ({ setShowSearchPage, showSearchPage }) => {
       return buk;
     });
     setAllBooks((oldArray) => updatedBooks);
-    console.log("allBooks", allBooks);
+    // console.log("allBooks", allBooks);
   }
   function sortBooks() {
     const readBooks = allBooks.filter((book) => book.shelf === "read");
