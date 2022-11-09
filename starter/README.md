@@ -2,12 +2,49 @@
 
 ### the MyReads Project
 
-is an app that lets you search books and sort books by shelf. The template and API has been Provided by Udacity, the page functionality has been implemented by me, Chris Klingsporn.
+is an app that lets you search books and sort books by shelf. The template and API has been Provided by Udacity, the page functionality has been implemented by me, `Chris Klingsporn`.
 
-The app now gets the initial array of 7 books, by utilizing `getall()`, triggered by `useEffect()`, provided in the `booksAPI`
+### preparation
+
+All of the `components` have been extracted from the initial `app.js` file. Initially i've tried to put the `get` functionality in `bookcase`, but lateron i've decided that it's better to do this in `app` because we want to pass on data not only to `BookCase` but also to `SearchBar`.
+
+### initially
+
+When starting the app, it gets the initial array of 7 books, by utilizing `getall()`, triggered by `useEffect()`, provided in the `booksAPI`
 this array gets looked at by `booksHopper()` and will sort it into the right `BookShelf` as `Book` component in `BookCase`.
 
-the `search()` functionality is triggered whenever input is given, and fetching data on the hand of the query.
+### searching
+
+The `search()` functionality is triggered whenever input is given, and fetching data on the hand of the input query.
+Whenever a book in the `SearchBar` section has no `shelf` property, it will add a `shelf:none` property, so whenever you try to pass it into one of the other shelves, it's able to change the `shelf` property to wherever you're telling it to go.
+
+### storing data
+
+Whenever a book is added to a `Shelf` , it's updated within the API by calling `update()`, which updates the array in the database. So whenever the page refreshes, the information will persist.
+
+### Architecture
+
+but only the files i've edited.
+
+```bash
+├── README.md
+└── src
+    ├── Components
+        ├──Book.js  # Component which displays any book handed to it.
+        ├──BookCase.js  # Collection of books of the user
+        ├──BookShelf.js # Collection of type of book, read/ want to read/ currently reading.
+        ├──SearchBar.js # search page.
+    ├── App.js # This is where all components are extracted from and where all functionality is provided where it's accessed app-wide.
+
+```
+
+---
+
+...
+
+###### original MD is stored below
+
+...
 
 ---
 
