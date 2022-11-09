@@ -1,4 +1,4 @@
-const Book = ({ title, authors, image, shelf, id, booksHopper }) => {
+const Book = ({ title, authors, image, shelf, id, booksHopper, book }) => {
   return (
     <div className="book">
       <div className="book-top">
@@ -12,7 +12,7 @@ const Book = ({ title, authors, image, shelf, id, booksHopper }) => {
         <div className="book-shelf-changer">
           <select
             value={shelf}
-            onChange={(e) => booksHopper(e.target.value, id)}>
+            onChange={(e) => booksHopper(e.target.value, id, book)}>
             <option disabled>Move to...</option>
             <option value="currentlyReading">Currently</option>
             <option value="wantToRead">Want to Read</option>

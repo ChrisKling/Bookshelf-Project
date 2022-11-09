@@ -2,32 +2,38 @@ import { search } from "../BooksAPI";
 import { useState } from "react";
 import BookShelf from "./BookShelf";
 
-export const SearchBar = ({ setShowSearchPage, showSearchPage, allBooks }) => {
+export const SearchBar = ({
+  setShowSearchPage,
+  showSearchPage,
+  allBooks,
+  booksHopper,
+}) => {
   const [foundBooks, setFoundBooks] = useState([]);
   const handleChange = (e) => {
     fetchMyData(e.target.value);
   };
   const fetchMyData = async (query) => {
-    search(query).then((results) => {
-      if (results && !results.error) {
-        setFoundBooks(
-          results.map((book) => {
-            const matchedBookId = allBooks.find(
-              (allbook) => allbook.id === book.id
-            );
+    query &&
+      search(query).then((results) => {
+        if (results && !results.error) {
+          setFoundBooks(
+            results.map((book) => {
+              const matchedBookId = allBooks.find(
+                (allbook) => allbook.id === book.id
+              );
 
-            if (matchedBookId) {
-              // console.log(matchedBookId.title);
-              return { ...book, shelf: matchedBookId.shelf };
-            }
-            // console.log("unassigned books:", book.shelf);
-            return { ...book, shelf: "none" };
-          })
-        );
-      } else {
-        setFoundBooks([]);
-      }
-    });
+              if (matchedBookId) {
+                // console.log(matchedBookId.title);
+                return { ...book, shelf: matchedBookId.shelf };
+              }
+              // console.log("unassigned books:", book.shelf);
+              return { ...book, shelf: "none" };
+            })
+          );
+        } else {
+          setFoundBooks([]);
+        }
+      });
   };
 
   return (
@@ -48,7 +54,7 @@ export const SearchBar = ({ setShowSearchPage, showSearchPage, allBooks }) => {
         </div>
       </div>
       <div className="search-books-results">
-        <BookShelf allBooks={foundBooks} />
+        <BookShelf allBooks={foundBooks} booksHopper={booksHopper} />
         {/* <ol className="books-grid"></ol> */}
       </div>
     </div>

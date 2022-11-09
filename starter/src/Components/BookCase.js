@@ -40,13 +40,16 @@ export const BookCase = ({
   // }
   function sortBooks() {
     const readBooks = allBooks.filter((book) => book.shelf === "read");
+    // update(readBooks, readBooks.shelf);
     setReadBooks(readBooks);
 
     const currentBooks = allBooks.filter(
       (book) => book.shelf === "currentlyReading"
     );
+    // update(readingBooks, readingBooks.shelf);
     setReadingBooks(currentBooks);
     const wantBooks = allBooks.filter((book) => book.shelf === "wantToRead");
+    // update(wantBooks, wantBooks.shelf);
     setWantBooks(wantBooks);
 
     // console.log("read books", readBooks);
@@ -77,12 +80,7 @@ export const BookCase = ({
         />
       </div>
       <div className="open-search">
-        <a
-          onClick={() => setShowSearchPage(!showSearchPage)}
-          // allBooks={allBooks}
-        >
-          Add a book
-        </a>
+        <a onClick={() => setShowSearchPage(!showSearchPage)}>Add a book</a>
       </div>
     </div>
   );

@@ -12,10 +12,11 @@ const BookShelf = ({ title, allBooks, booksHopper }) => {
                 <Book
                   title={book.title}
                   authors={book.authors}
-                  image={book.imageLinks.smallThumbnail}
+                  image={book.imageLinks && book.imageLinks.smallThumbnail}
                   shelf={book.shelf}
                   id={book.id}
                   booksHopper={booksHopper}
+                  book={book}
                 />
               </li>
             ))}

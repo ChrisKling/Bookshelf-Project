@@ -1,3 +1,16 @@
+# MyReads Project!
+
+### the MyReads Project
+
+is an app that lets you search books and sort books by shelf. The template and API has been Provided by Udacity, the page functionality has been implemented by me, Chris Klingsporn.
+
+The app now gets the initial array of 7 books, by utilizing `getall()`, triggered by `useEffect()`, provided in the `booksAPI`
+this array gets looked at by `booksHopper()` and will sort it into the right `BookShelf` as `Book` component in `BookCase`.
+
+the `search()` functionality is triggered whenever input is given, and fetching data on the hand of the query.
+
+---
+
 # MyReads Project
 
 This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
