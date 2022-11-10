@@ -27,7 +27,7 @@ function App() {
       return buk;
     });
     const addedBook = updatedBooks.find((book) => book.id === id);
-    if (!addedBook) {
+    if (!addedBook || book.shelf !== addedBook.shelf) {
       // console.log("book and Option", book, option);
       book.shelf = option;
       updatedBooks.push(book);
