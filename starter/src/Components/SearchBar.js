@@ -13,27 +13,28 @@ export const SearchBar = ({
     fetchMyData(e.target.value);
   };
   const fetchMyData = async (query) => {
-    query &&
-      search(query).then((results) => {
-        if (results && !results.error) {
-          setFoundBooks(
-            results.map((book) => {
-              const matchedBookId = allBooks.find(
-                (allbook) => allbook.id === book.id
-              );
+    query
+      ? search(query).then((results) => {
+          if (results && !results.error) {
+            setFoundBooks(
+              results.map((book) => {
+                const matchedBookId = allBooks.find(
+                  (allbook) => allbook.id === book.id
+                );
 
-              if (matchedBookId) {
-                // console.log(matchedBookId.title);
-                return { ...book, shelf: matchedBookId.shelf };
-              }
-              // console.log("unassigned books:", book.shelf);
-              return { ...book, shelf: "none" };
-            })
-          );
-        } else {
-          setFoundBooks([]);
-        }
-      });
+                if (matchedBookId) {
+                  // console.log(matchedBookId.title);
+                  return { ...book, shelf: matchedBookId.shelf };
+                }
+                // console.log("unassigned books:", book.shelf);
+                return { ...book, shelf: "none" };
+              })
+            );
+          } else {
+            setFoundBooks([]);
+          }
+        })
+      : setFoundBooks([]);
   };
 
   return (
